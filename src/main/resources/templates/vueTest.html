@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<v-yw></v-yw>
+		
+		{{message}}
+		<br/><br/>
+		
+		<span th:text="${fruit.fruit1}"></span><br/>
+		<span th:text="${fruit.fruit2}"></span><br/>
+		<span th:text="${fruit.fruit3}"></span><br/>
+	</div>
+	<script>
+		Vue.component('v-yw',{
+			name:'yw',
+			template: '<div>yw 컴포넌트</div>'
+		})
+	
+		var app = new Vue({
+		  el: '#app',
+		  data: {
+		    message: '[[${fruit.fruit1}]]',
+		    message2: '[[${fruit.fruit2}]]',
+		    items: '[[${fruit}]]',
+		    test : true
+		  },
+		  created(){
+			console.log(this.test)
+		  }
+		})
+	</script>
+
+</body>
+</html>
